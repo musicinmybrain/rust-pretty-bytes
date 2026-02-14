@@ -3,7 +3,7 @@ use ::converter;
 use std::io;
 use std::env;
 use getopts::Options;
-use atty::{self, Stream};
+use std::io::{stdin, IsTerminal};
 
 fn print_usage(program: &str, opts: Options) {
     let brief = format!(
@@ -18,7 +18,7 @@ fn print_version() {
 }
 
 pub fn run(args: env::Args) -> () {
-    let num: f64 = if atty::is(Stream::Stdin) {
+    let num: f64 = if stdin().is_terminal() {
         let args: Vec<String> = args.collect();
         let ref program = args[0];
 

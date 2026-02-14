@@ -9,4 +9,3 @@ readme = "README.md"
 
 [dependencies]
 getopts = "0.2"
-atty = "0.2"
